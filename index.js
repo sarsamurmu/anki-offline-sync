@@ -1,15 +1,16 @@
 const httpProxy = require('http-proxy')
 const childProcess = require('child_process')
 
-const ANKI_PATH = 'C:/Users/me/AppData/Local/Programs/Anki/anki.exe'
+const ANKI_PATH = ''
 const HOST = '0.0.0.0'
 const PORT = 27701
+const USER = ''username:password''
 
 childProcess.execFile(ANKI_PATH, ['--syncserver'], {
   env: {
     SYNC_HOST: '127.0.0.1',
     SYNC_PORT: PORT,
-    SYNC_USER1: 'username:password',
+    SYNC_USER1: USER,
     MAX_SYNC_PAYLOAD_MEGS: 100,
   }
 }, (error, stdout, stderr) => {
