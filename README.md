@@ -59,12 +59,13 @@ node .
 If you are using windows then just double click on `start-server.bat` to launch the server.
 
 You will see something like
+
 ![Screenshot 2023-08-09 001222](https://github.com/sarsamurmu/anki-offline-sync/assets/44255990/3bbadeb6-8ebf-4b7f-a754-8949bd63cb88)
 
 Note down the proxy link (here `http://42.105.1.208:27701`). You would need it for AnkiDroid.
 
 ### Setting up Anki desktop
-***NOTE:*** Make a backup before you do anything, I am not responsible for any damage that you may cause.
+***NOTE:*** Make a backup before you do anything, I am not responsible for any damage it may cause.
 
 Open Tool > Preferences > Syncing. At the very end you will find `Self-hosted sync server`, in that input box write `http://127.0.0.1:27701`
 
@@ -77,10 +78,10 @@ Return to homepage of the app. Tap the sync button on top right side of the scre
 
 ## FAQs
 ### Q. Do I have to set it up again if I restart my computer?
-No, just follow "Starting the server" method.
+No, just follow "Starting the server" method after the initial setup.
 
 ### Q. What should I do if my network changes?
-Update the `HOST` in `index.js` and `Sync url` to updated proxy url in AnkiDroid. 
+Update the `HOST` in `index.js` and `Sync url` to the updated proxy url in AnkiDroid. 
 
 ### Q. How can I make a local network? I don't have/use WiFi router.
 Just turn on the hotspot on your mobile and connect the computer to your mobile's network. It would make a local network. Turn off the cell data when doing this, so that you don't use cell data and get charged by mistake.
