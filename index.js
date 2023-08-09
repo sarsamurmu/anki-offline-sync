@@ -4,7 +4,7 @@ const childProcess = require('child_process')
 const ANKI_PATH = ''
 const HOST = '0.0.0.0'
 const PORT = 27701
-const USER = ''username:password''
+const USER = 'username:password'
 
 childProcess.execFile(ANKI_PATH, ['--syncserver'], {
   env: {
