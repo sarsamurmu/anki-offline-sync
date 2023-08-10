@@ -31,7 +31,7 @@ Before editing the file, you have to find and note down these things
 - *Anki executable path:* You have to find where Anki is installed in your system. In my case, it was installed in `C:/Users/sarsa/AppData/Local/Programs/Anki/anki.exe`
 - *Host:* You would use the IP address of your currently connected network. In windows 11 you can find it by - WiFi icon on taskbar > Small right arrow/chevron icon beside the WiFi > Small `i` icon on top right corner of the currently connected network > Scroll down to end then find `IPv4 address`. This is your host.
 - *Port:* Can be any number between 0 and 65536, but I personally prefer 27701. You won't need to do anything about this. You can change this if you're an advanced user. If you're going to change this then replace all 27701 with your port in next steps.
-- *User*: Create a username and a password that you would use for your Anki. It can be anything.
+- *User:* Create a username and a password that you would use for your Anki. It can be anything.
 
 Now editing the file, open `index.js` in Notepad or VS Code.
 Find these lines
@@ -77,6 +77,9 @@ On AnkiDroid, go to Sidebar > Settings > Sync > Custom sync server > Sync url. W
 Return to homepage of the app. Tap the sync button on top right side of the screen, it would ask you for the email and password. Put the username in place of email and enter the password, then `Sign in/Log in` to sign in. Now the sync should work in AnkiDroid.
 
 ## FAQs
+### Q. AnkiDroid is not syncing even though I followed all steps properly. What to do?
+Make sure you've enabled "Node.js JavaScript Runtime" to access both private and public network in your ***firewall***.
+
 ### Q. Do I have to set it up again if I restart my computer?
 No, just follow "Starting the server" method after the initial setup.
 
