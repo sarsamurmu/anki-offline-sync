@@ -9,10 +9,10 @@ Make sure you have the latest version of Anki Desktop and AnkiDroid. When this t
 
 This tutorial was written for Windows 11. But I think things are pretty similar for other OSs.
 
-There are many ways to make proxy servers but we will use Node.js with `http-proxy` because it's easy and download size is small.
+There are many ways to make proxy servers but we will use Node.js with `http-proxy` because it's easy and the download size is small.
 
 ## Setting up computer
-First install [Node.js](https://nodejs.org/en/download/current) using appropriate installer (choose current version, don't install `chocolatey` if it asks). After installing open terminal or command prompt (anywhere) and run these commands to make sure it's installed properly
+First install [Node.js](https://nodejs.org/en/download/current) using the appropriate installer (choose the current version, don't install `chocolatey` if it asks). After installing open the terminal or command prompt (anywhere) and run these commands to make sure it's installed properly
 ```shell
 node -v
 npm -v
@@ -28,12 +28,14 @@ This command installs the required dependency (`http-proxy`).
 
 ### Modifying `index.js`
 Before editing the file, you have to find and note down these things
-- *Anki executable path:* You have to find where Anki is installed in your system. In my case, it was installed in `C:/Users/sarsa/AppData/Local/Programs/Anki/anki.exe`
-- *Host:* You would use the IP address of your currently connected network. In windows 11 you can find it by - WiFi icon on taskbar > Small right arrow/chevron icon beside the WiFi > Small `i` icon on top right corner of the currently connected network > Scroll down to end then find `IPv4 address`. This is your host.
-- *Port:* Can be any number between 0 and 65536, but I personally prefer 27701. You won't need to do anything about this. You can change this if you're an advanced user. If you're going to change this then replace all 27701 with your port in next steps.
+- *Anki executable path:* You have to find where Anki is installed in your system. In my case, it was installed in `C:/Users/sarsa/AppData/Local/Programs/Anki/anki.exe`. Here's what it would be on other OS (I'm not sure but this is what I've found on the internet)
+  - Mac: `/Applications/Anki.app/Contents/MacOS/anki`
+  - Linux: `anki`
+- *Host:* You would use the IP address of your currently connected network. In Windows 11 you can find it by - WiFi icon on the taskbar > Small right arrow/chevron icon beside the WiFi > Small `i` icon on the top right corner of the currently connected network > Scroll down to the end then find `IPv4 address`. This is your host.
+- *Port:* Can be any number between 0 and 65536, but I personally prefer 27701. You won't need to do anything about this. You can change this if you're an advanced user. If you're going to change this then replace all 27701 with your port in the next steps.
 - *User:* Create a username and a password that you would use for your Anki. It can be anything.
 
-Now editing the file, open `index.js` in Notepad or VS Code.
+Now edit the file, open `index.js` in Notepad or VS Code.
 Find these lines
 ```js
 const ANKI_PATH = ''
@@ -56,7 +58,7 @@ Open terminal or cmd in the current directory then run
 ```
 node .
 ```
-If you are using windows then just double click on `start-server.bat` to launch the server.
+If you are using Windows then just double click on `start-server.bat` to launch the server.
 
 You will see something like
 
@@ -67,26 +69,26 @@ Note down the proxy link (here `http://42.105.1.208:27701`). You would need it f
 ### Setting up Anki desktop
 ***NOTE:*** Make a backup before you do anything, I am not responsible for any damage it may cause.
 
-Open Tool > Preferences > Syncing. At the very end you will find `Self-hosted sync server`, in that input box write `http://127.0.0.1:27701`
+Open Tool > Preferences > Syncing. At the very end, you will find `Self-hosted sync server`, in that input box write `http://127.0.0.1:27701`
 
-Now the syncing should work in Anki desktop. Do a complete sync. It would ask for AnkiWeb ID and password. Put the username as the AnkiWeb ID and enter password. In the above example `index.js` the username is `sarsa` and the password is `doanki`
+Now the syncing should work on Anki desktop. Do a complete sync. It would ask for AnkiWeb ID and password. Put the username as the AnkiWeb ID and enter the password. In the above example `index.js` the username is `sarsa` and the password is `doanki`
 
 ## Setting up mobile
-On AnkiDroid, go to Sidebar > Settings > Sync > Custom sync server > Sync url. Write down the proxy link (here it was `http://42.105.1.208:27701`), `OK`. Also, don't forget to enable switch on the right side of `Sync url`.
+On AnkiDroid, go to Sidebar > Settings > Sync > Custom sync server > Sync url. Write down the proxy link (here it was `http://42.105.1.208:27701`), `OK`. Also, don't forget to enable the switch on the right side of `Sync url`.
 
-Return to homepage of the app. Tap the sync button on top right side of the screen, it would ask you for the email and password. Put the username in place of email and enter the password, then `Sign in/Log in` to sign in. Now the sync should work in AnkiDroid.
+Return to the homepage of the app. Tap the sync button on the top right side of the screen, it would ask you for the email and password. Put the username in place of the email and enter the password, then `Sign in/Log in` to sign in. Now the sync should work in AnkiDroid.
 
 ## FAQs
 ### Q. AnkiDroid is not syncing even though I followed all steps properly. What to do?
-Make sure you've enabled "Node.js JavaScript Runtime" to access both private and public network in your ***firewall***.
+Make sure you've enabled "Node.js JavaScript Runtime" to access both private and public networks in your ***firewall***.
 
 ### Q. Do I have to set it up again if I restart my computer?
-No, just follow "Starting the server" method after the initial setup.
+No, just follow the "Starting the server" method after the initial setup.
 
 ### Q. What should I do if my network changes?
-Update the `HOST` in `index.js` and `Sync url` to the updated proxy url in AnkiDroid. 
+Update the `HOST` in `index.js` and `Sync url` to the updated proxy URL in AnkiDroid. 
 
-### Q. How can I make a local network? I don't have/use WiFi router.
+### Q. How can I make a local network? I don't have/use a WiFi router.
 Just turn on the hotspot on your mobile and connect the computer to your mobile's network. It would make a local network. Turn off the cell data when doing this, so that you don't use cell data and get charged by mistake.
 
 ### Q. How to turn off the server?
