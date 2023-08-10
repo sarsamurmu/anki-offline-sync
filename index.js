@@ -19,8 +19,10 @@ childProcess.execFile(ANKI_PATH, ['--syncserver'], {
   console.log(stderr);
 })
 
-httpProxy
-  .createProxyServer({ target: `http://127.0.0.1:${PORT}` })
-  .listen(PORT, HOST)
-
-console.log(`Proxy to sync-server has been created: http://${HOST}:${PORT}`)
+if (HOST) {
+  httpProxy
+    .createProxyServer({ target: `http://127.0.0.1:${PORT}` })
+    .listen(PORT, HOST)
+  
+  console.log(`Proxy to sync-server has been created: http://${HOST}:${PORT}`)
+}
