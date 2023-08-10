@@ -12,7 +12,7 @@ This tutorial was written for Windows 11. But I think things are pretty similar 
 There are many ways to make proxy servers but we will use Node.js with `http-proxy` because it's easy and download size is small.
 
 ## Setting up computer
-First install [Node.js](https://nodejs.org/en/download/current) using appropriate installer (choose current version). After installing open terminal or command prompt (anywhere) and run these commands to make sure it's installed properly
+First install [Node.js](https://nodejs.org/en/download/current) using appropriate installer (choose current version, don't install `chocolatey` if it asks). After installing open terminal or command prompt (anywhere) and run these commands to make sure it's installed properly
 ```shell
 node -v
 npm -v
