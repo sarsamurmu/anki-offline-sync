@@ -1,8 +1,9 @@
 {
   "private": true,
   "name": "anki-offline-sync",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "type": "module",
   "dependencies": {
-    "http-proxy": "^1.18.1"
+    "http-proxy-3": "^2.0.2"
   }
 }
