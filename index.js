@@ -10,17 +10,25 @@ import { createProxyServer } from 'http-proxy-3'
 import childProcess from 'node:child_process'
 import os from 'node:os'
 
-childProcess.execFile(ANKI_PATH, ['--syncserver'], {
+const child = childProcess.spawn(ANKI_PATH, ['--syncserver'], {
   env: {
     SYNC_HOST: '127.0.0.1',
     SYNC_PORT: PORT,
     SYNC_USER1: USER,
     MAX_SYNC_PAYLOAD_MEGS: 1000,
-  }
-}, (error, stdout, stderr) => {
-  console.log(error)
-  console.log(stdout)
-  console.log(stderr)
+  },
+  stdio: ['ignore', 'pipe', 'pipe']
+})
+
+child.stdout.pipe(process.stdout)
+child.stderr.pipe(process.stderr)
+
+child.on('error', err => {
+  console.error('Failed to start:', err)
+})
+
+child.on('close', (code, signal) => {
+  console.log('Anki server stopped:', { code, signal })
 })
 
 if (HOST) {
