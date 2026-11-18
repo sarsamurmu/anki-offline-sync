@@ -59,6 +59,7 @@ node .
 If you are using Windows, simply double-click `start-server.bat` to launch the server.
 
 You should see something like this
+
 ![Screenshot 2023-08-09 001222](https://github.com/sarsamurmu/anki-offline-sync/assets/44255990/3bbadeb6-8ebf-4b7f-a754-8949bd63cb88)
 
 Make a note of the proxy URL (here `http://42.105.1.208:27701`). You will need it to configure AnkiDroid.
